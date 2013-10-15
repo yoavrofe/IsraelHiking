@@ -2,7 +2,7 @@
 Create Israel Hiking Map similar to Israel Trails Committee (ITC)
 
 
-The output of the map can be [seen here](http://osm.org.il/Israel%20Hiking/IsraelHikingMap.html)
+The output of the map can be [seen here](http://osm.org.il/IsraelHiking/IsraelHikingMap.html).
 
 ###Ready-to-use maps
 
@@ -10,11 +10,18 @@ Ready-to-use maps are available for:
 * [OruxMaps](http://www.oruxmaps.com/index_en.html): 
     * Download the ["Israel Hiking" folder](https://googledrive.com/host/0B-qrsEBJWXhQUGVBM3lHZTF2eXc/) with both files in it.
     * Place the directory under the oruxmaps/mapfiles directory on your device.
-    * Re-generate the maps database using _"Maps -> Switch map -> offline -> Refresh (the counter-clockwise arrow)"_
+    * Re-generate the maps database using _"Maps &rarr; Switch map &rarr; offline &rarr; Refresh (the counter-clockwise arrow)"_
 * [OziExplorer](http://www.oziexplorer.com/): _Based on [this thread](http://www.jeepolog.com/forums/showthread.php?t=74909&p=508197)._
     * Download [the 6 files here](https://www.dropbox.com/sh/h8ye52ahotghta1/tTeUkbTspw).
     * Place them in the _MAPS_ sub-directory of the OziExplorer installation.
-    * Re-index the maps using _"MAP -> Re-Index map files"_. 
+    * Re-index the maps using _"MAP &rarr; Re-Index map files"_. 
+* [OpenMaps for iOS](http://izeize.com/openmaps/) (this is a guess since I don't have an iOS device)
+    * Select new type of map
+    * define a name for it (i.e IsraelHiking)
+    * enter the this URL: 
+```
+    http://osm.org.il/IsraelHiking/Tiles/<zoom>/<x>/<y>.png
+```
 
 
 ###Abstract
@@ -29,15 +36,15 @@ Maperitive runs on Windows, Linux and MAC.
 
 1. Download [Maperitive](http://maperitive.net/) and extract it to a desired location.
     On Linux and MacOS, Maperitive requires the use of [Mono](http://www.mono-project.com/Main_Page).
-2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking) (this site if you read this file in github).
+2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/IsraelHiking/tree/master/) (this site if you read this file in github).
     * click on the Files tab.
     * click on the Zip with the cloud and arrow to download all the files.
-3. The zip file will contain some unnecessary folders and files, the only folder needed from this zip is called IsraelHiking, place it inside your Maperitive installation folder.
-    * you should now have a folder ...\<Maperitive Install folder\>\IsraelHiking\
-4. Download [OSM Data for the region](http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf) and place it in the above folder.
-5. Open Maperitive program, click _File -> Run Script_ ... and choose _IsraelHiking\IsraelHiking.mscript_
+3. The zip file will contain some unnecessary folders and files, the only folder needed from this zip is called Maperitive, copy it to the Maperitive installation folder.
+    * The folder in the zip file are a subset of the folders exist in Maperitive installation folder. when copying some file might be duplicate, it is OK to overwrite them.
+4. Download [OSM Data for the region](http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf) and place it in the Cache folder.
+5. Open Maperitive program, click _File &rarr; Run Script_ ... and choose _Scripts\IsraelHiking.mscript_
 
-This should generate 256x256 png tile files inside IsraelHiking\Tiles directory and should take long (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
+This should generate 256x256 png tile files inside Tiles directory and should take long (about 3 hours or more, I prefer to do it overnight, but you need to make sure you don't get out of memory).
 
 ##MOBAC and Oruxmaps
 
@@ -47,7 +54,7 @@ MOBAC is creating Oruxmaps offline maps from the Maperitive results.
 
 1. In order to use an offline version of this map in an android device first install [Oruxmaps](http://www.oruxmaps.com/index_en.html) from the [play store](https://play.google.com/store/apps/details?id=com.orux.oruxmaps). Oruxmaps is free of charge and does not have ads. It was not created by any of us, yet we recommend you buy the [donate version](https://play.google.com/store/apps/details?id=com.orux.oruxmapsDonate).
 2. Download [MOBAC - MOBile Atlas Creator](http://mobac.sourceforge.net/).
-3. Open IsraelHiking.xml file and change the \<sourceFolder\> tag to where the tiles were created (...\<Maperitive Install folder>\IsraelHiking\Tiles - full path).
+3. Open IsraelHiking.xml file and change the \<sourceFolder\> tag to where the tiles were created (...\<Maperitive Install folder>\Tiles - full path).
 4. Place the _"IsraelHiking.xml"_ file in the _"\<MOBAC installtion folder\>\mapsources\"_ folder
 5. Open MOBAC (it takes some time since it runs on java) and choose _"oruxmaps sqlite"_ as the atlas format.
 6. On the left side under _"Map Source"_ choose _"Isreal Hiking"_.
@@ -65,4 +72,4 @@ MOBAC is creating Oruxmaps offline maps from the Maperitive results.
 
 
 -------------------------
-Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 8.6.13
+Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 15.10.13
