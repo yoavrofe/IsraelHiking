@@ -36,7 +36,7 @@ Maperitive runs on Windows, Linux and MAC.
 
 1. Download [Maperitive](http://maperitive.net/) and extract it to a desired location.
     On Linux and MacOS, Maperitive requires the use of [Mono](http://www.mono-project.com/Main_Page).
-2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/IsraelHiking/tree/master/) (this site if you read this file in github).
+2. Go to [Israel Hiking on GitHub](https://github.com/HarelM/IsraelHiking/) (this site if you read this file in github).
     * click on the Files tab.
     * click on the Zip with the cloud and arrow to download all the files.
 3. The zip file will contain some unnecessary folders and files, the only folder needed from this zip is called Maperitive, copy it to the Maperitive installation folder.
