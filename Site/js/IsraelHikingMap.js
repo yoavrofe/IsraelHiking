@@ -167,7 +167,7 @@ function getLinks() {
     }
     links = $(".Github");
     for (var i = 0; i < links.length; ++i) {
-        links[i].href = "https://github.com/HarelM/maperitive-rulesets/tree/master/IsraelHiking#israel-hiking-map";
+        links[i].href = "https://github.com/HarelM/IsraelHiking/#israel-hiking-map";
         links[i].target = "_blank";
     }
 
