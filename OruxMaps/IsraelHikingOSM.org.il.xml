@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customMapSource>
+    <name>Israel Hiking osm.org.il</name>
+    <!-- http://osm.org.il/IsraelHiking -->
+    <minZoom>7</minZoom>
+    <maxZoom>16</maxZoom>
+    <tileType>png</tileType>
+    <tileUpdate>ifNoneMatch</tileUpdate> <!-- tested -->
+    <url>http://osm.org.il/IsraelHiking/Tiles/{$z}/{$x}/{$y}.png</url>
+</customMapSource>

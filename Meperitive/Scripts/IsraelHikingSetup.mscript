@@ -1,0 +1,20 @@
+﻿clear-map
+
+// Set bounnds to match 
+// http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf
+set-geo-bounds 34.00842,29.32535,35.92745,33.398339999
+
+// create and save the relief-igor background
+generate-relief-igor intensity=6 color=#808080
+save-source Cache\relief_Hiking_Igor.png
+
+// create and save the relief-slopeshading background
+//generate-relief-slopeshading
+//save-source Cache\relief_Hiking_Slopeshading.png
+
+// create and save the contours
+generate-contours interval=10
+save-source Cache\Israel.contours
+
+// create and save grid lines file
+run-python file="Python\CreateITMGridOsm.py"
