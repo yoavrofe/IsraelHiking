@@ -7,8 +7,8 @@
 	overflow:hidden;
 }
 
-.navbar .navbar-inner {
-    background-color: rgba(255,255,255,0.7);
+#mainnavabr {
+	background-color: rgba(255,255,255,0.7) !important;
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#b2ffffff', endColorstr='#b2ffffff'); /* IE */
     background-image: none;
 }

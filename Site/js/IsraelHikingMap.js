@@ -71,6 +71,7 @@ function onChangeLanguage() {
     if (language === "he")
     {
         text = getHebrewText();
+		$("#BrandText").text('מפת הטיולים הפתוחה');
         $("#LegendText").text('מקרא');
         $("#AboutText").text('אודות');
         $("#EditText").text('ערוך');
@@ -84,6 +85,7 @@ function onChangeLanguage() {
     else if (language === "en")
     {
         text = getEnglishText();
+		$("#BrandText").text('Israel Hiking Map');
         $("#LegendText").text('Legend');
         $("#AboutText").text('About');
         $("#EditText").text('Edit');
@@ -100,7 +102,7 @@ function onChangeLanguage() {
 
 function getHebrewText() {
     var text = '<div class="container">' +
-            '<h1>פרוייקט מפת הטיולים הפתוחה של ישראל</h1>' +
+            /*'<h1>פרוייקט מפת הטיולים הפתוחה של ישראל</h1>' + */
             '<p> המפה הזו נוצרה בעזרת מידע מ- <a class="OSM" href="http://www.openstreetmap.org/" target="_blank">Open Street Map</a> שם ניתן לראות ולערוך אותו. כל שיש לעשות הוא לפתוח חשבון ולהתחיל למפות. שימו לב, המפה אינה מתעדכנת באופן מיידי.</p>' +
             '<h4> להלן כמה קישורים הקשורים לפרוייקט </h4>' +
             '<ul>' +
@@ -120,7 +122,7 @@ function getHebrewText() {
 
 function getEnglishText() {
     var text = '<div class="container">' +
-            '<h1>Israel Hiking Project</h1>' +
+            /*'<h1>Israel Hiking Project</h1>' + */
             '<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instantly.</p>' +
             '<h4> Below are some links related to this project </h4>' +
             '<ul>' +

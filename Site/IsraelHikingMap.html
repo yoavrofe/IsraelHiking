@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Israel Hiking Map - OSM</title>
-        <link rel="icon" href="assets/favicon.png" />
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
-        <link rel="stylesheet" href="css/IsraelHikingMap.css" />
-        <link rel="stylesheet" href="css/bootstrap.ltr.css" id="cssLink" media="screen">
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    </head>
-    <body>
-        <div id="map"></div>
-        <nav class="navbar navbar-fixed-top" role="navigation">
-            <div class="navbar-inner">
-                <div style="display: table">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" onclick="onChangeLanguage();"><img id="Flag" alt="" src="assets/english.png" height="20" width="24"/></a></li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" onclick="hidePopovers();"><span id="LegendText">Legend</span></a>
-                            <ul class="dropdown-menu" id="Legend">
-                                <li><img id="LegendImage" src="assets/legend-en.png" width="100%"/></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" onclick="hidePopovers();"><span id="AboutText">About</span></a>
-                            <ul class="dropdown-menu" id="About">
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="" id="PemalinkMenu" class="dropdown-toggle" data-toggle="dropdown" onclick="onPermalink();"><span id="PermalinkText">Permalink</span></a>
-                            <ul class="dropdown-menu" id="Permalink">
-                            </ul>
-                        </li>
-                        <li><a href="#" onclick="onEdit();" id="EditText">Edit</a></li>
-                    </ul>
-                    <form class="navbar-form navbar-left" id="Search" onsubmit="return onSubmit();">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" id="SearchText" onclick="hidePopovers();" autocomplete="off">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- scripts -->
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-        <script src="js/IsraelHikingMap.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript">
+	<head>
+		<meta charset="utf-8" />
+		<title>Israel Hiking Map - OSM</title>
+		<link rel="icon" href="assets/favicon.png" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+		<link rel="stylesheet" href="css/IsraelHikingMap.css" />
+		<link rel="stylesheet" href="css/bootstrap.ltr.css" id="cssLink" media="screen">
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	</head>
+	<body>
+		<div id="map"></div>
+		<nav id="mainnavabr" class="navbar navbar-fixed-top navbar-default" role="navigation">
+			<div class="navbar-header">
+				<button style="z-index:1000" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				  <span class="sr-only">Toggle navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+				<a  class="navbar-brand" href="#"><span id="BrandText">Israel Hiking Map<span></a>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#" onclick="onChangeLanguage();"><img id="Flag" alt="" src="assets/english.png" height="20" width="24"/></a></li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" onclick="hidePopovers();"><span id="LegendText">Legend</span></a>
+						<ul class="dropdown-menu" id="Legend">
+							<li><img id="LegendImage" src="assets/legend-en.png" width="100%"/></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" onclick="hidePopovers();"><span id="AboutText">About</span></a>
+						<ul class="dropdown-menu" id="About">
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="" id="PemalinkMenu" class="dropdown-toggle" data-toggle="dropdown" onclick="onPermalink();"><span id="PermalinkText">Permalink</span></a>
+						<ul class="dropdown-menu" id="Permalink">
+						</ul>
+					</li>
+					<li><a href="#" onclick="onEdit();" id="EditText">Edit</a></li>
+				</ul>
+				<form class="navbar-form navbar-left" id="Search" onsubmit="return onSubmit();">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" id="SearchText" onclick="hidePopovers();" autocomplete="off">
+				</div>
+				</form>
+			</div> <!-- collapse -->
+		</nav>
+		<!-- scripts -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+		<script src="js/IsraelHikingMap.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
                             var map = L.map('map', {zoomControl: false}).setView([31.773, 35.12], 13);
                             L.tileLayer('Tiles/{z}/{x}/{y}.png', {
                                 attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>',
@@ -72,6 +79,6 @@
                                 content: 'Content',
                                 trigger: 'manual'
                             });
-        </script>
-    </body>
+		</script>
+	</body>
 </html>
