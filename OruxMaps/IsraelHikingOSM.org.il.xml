@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <customMapSource>
-    <name>Israel Hiking osm.org.il</name>
+    <name>Israel Hiking Map</name>
     <!-- http://osm.org.il/IsraelHiking -->
     <minZoom>7</minZoom>
     <maxZoom>16</maxZoom>
