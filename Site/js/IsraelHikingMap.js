@@ -2,7 +2,7 @@
 var language;
 
 jQuery(document).ready(function($) {
-    language = "en";
+    language = "he";
     onChangeLanguage();
 
     var zoom = parseInt(getURLParameter('zoom'));
@@ -30,11 +30,15 @@ function onSubmit() {
         showAlert("This feature is not supported in this browser...");
         return false;
     }
-    $.getJSON('http://nominatim.openstreetmap.org/search?format=json&limit=5&q=' + encodeURIComponent(strSearchTerm), function(data) {
+    $.getJSON('http://nominatim.openstreetmap.org/search?' + 
+			  'format=json&limit=5' + 
+			  '&viewbox=34.00842,33.398339999,35.92745,29.32535&bounded=1' + 
+			  '&accept-language=' + language + 
+			  '&q=' + encodeURIComponent(strSearchTerm), 
+			  function(data) {
         var items = [];
         $.each(data, function(key, val) {
-            // HM Todo - check value the it is within israel bounds
-            // HM Todo - make ie 8 work with nominatim...?
+            // HM TODO - Make IE 8 work with Nominatim...?
             items.push(
                     '<li><a href="" onclick="onSearchResults(' +
                     val.lat + ', ' + val.lon + ');return false;">' + val.display_name +
@@ -68,7 +72,7 @@ function onChangeLanguage() {
     hidePopovers();
     $("#About div").remove();
     var text = "";
-    if (language === "he")
+    if (language === "en")
     {
         text = getHebrewText();
 		$("#BrandText").text('מפת הטיולים הפתוחה');
@@ -80,9 +84,9 @@ function onChangeLanguage() {
         $("#LegendImage").attr("src", "assets/legend-heb.png");
         $("#Flag").attr("src", "assets/English.png");
         cssLink.href = "css/bootstrap.rtl.css";
-        language = "en";
+        language = "he";
     }
-    else if (language === "en")
+    else if (language === "he")
     {
         text = getEnglishText();
 		$("#BrandText").text('Israel Hiking Map');
@@ -94,7 +98,7 @@ function onChangeLanguage() {
         $("#LegendImage").attr("src", "assets/legend-en.png");
         $("#Flag").attr("src", "assets/Hebrew.png");
         cssLink.href = "css/bootstrap.ltr.css";
-        language = "he";
+        language = "en";
     }
     $("#About").append(text);
     getLinks();
@@ -155,10 +159,8 @@ function onPermalink() {
 }
 
 function onSearchResults(lat, lng) {
-    hidePopovers();
-    var location = new L.LatLng(lat, lng);
-    map.panTo(location);
-    map.setZoom(15);
+	hidePopovers();
+	map.setView([lat, lng], 15);
 }
 
 function getLinks() {
