@@ -127,7 +127,7 @@ function getHebrewText() {
 function getEnglishText() {
     var text = '<div class="container">' +
             /*'<h1>Israel Hiking Project</h1>' + */
-            '<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instantly.</p>' +
+            '<p> This map was generated from <a class="OSM">Open Street Map (OSM)</a> data where it can be viewed and edited. All you need to do is create an account and start mapping. Note that the changes will not affect this map instantly.</p>' +
             '<h4> Below are some links related to this project </h4>' +
             '<ul>' +
             '<li>See <a class="Github">Github</a> for instructions on how to create the map by yourself and links to map downloads.</li>' +
