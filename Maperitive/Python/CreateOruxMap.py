@@ -7,7 +7,7 @@ App.run_command('change-dir dir="' + App.script_dir + '\.."')
 # Map Created
 App.log('change-dir dir="..\Site"')
 App.run_command('change-dir dir="..\Site"')
-App.run_command("generate-tiles minzoom=7 maxzoom=7 use-fprint=true")
+App.run_command("generate-tiles minzoom=7 maxzoom=15 use-fprint=true")
 App.log("=== Create a Zip file with new tiles ===")
 App.run_command('zip zip-file="TileUpdate.zip"')
 
