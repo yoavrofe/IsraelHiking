@@ -59,26 +59,29 @@
 		<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 		<script src="js/IsraelHikingMap.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/LastModified.js"></script>
 		<script type="text/javascript">
-                            var map = L.map('map', {zoomControl: false}).setView([31.773, 35.12], 13);
-                            L.tileLayer('Tiles/{z}/{x}/{y}.png', {
-                                attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>',
-                                minZoom: 7,
-                                maxZoom: 16
-                            }).addTo(map);
-                            var zoomcontrol = new L.Control.Zoom({position: 'bottomright'});
-                            zoomcontrol.addTo(map);
-                            
-                            $(".alert").alert();
-                            $('#Permalink').click(function(event) {
-                                event.stopPropagation();
-                            });
-                            $('#SearchText').popover({
-                                placement: 'bottom', //placement of the popover. also can use top, bottom, left or right
-                                html: 'true', //needed to show html of course
-                                content: 'Content',
-                                trigger: 'manual'
-                            });
+			var map = L.map('map', {zoomControl: false}).setView([31.773, 35.12], 13);
+			var lastModified = (typeof getLastModifiedDate == 'function') ? getLastModifiedDate() : document.lastModified;
+			var attribution = 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, built with <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>. Last update: ' + lastModified;
+			L.tileLayer('Tiles/{z}/{x}/{y}.png', {
+				attribution: attribution,
+				minZoom: 7,
+				maxZoom: 16
+			}).addTo(map);
+			var zoomcontrol = new L.Control.Zoom({position: 'bottomright'});
+			zoomcontrol.addTo(map);
+
+			$(".alert").alert();
+			$('#Permalink').click(function(event) {
+				event.stopPropagation();
+			});
+			$('#SearchText').popover({
+				placement: 'bottom', //placement of the popover. also can use top, bottom, left or right
+				html: 'true', //needed to show html of course
+				content: 'Content',
+				trigger: 'manual'
+			});
 		</script>
 	</body>
 </html>

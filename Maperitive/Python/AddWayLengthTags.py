@@ -7,7 +7,7 @@ import math
 import sys
 import string
 
-sFileName = '..\Cache\Forests.osm'
+sFileName = 'Cache\Forests.osm'
 
 #this function calculates the distance between two nodes
 def getLength(node1, node2):
