@@ -72,4 +72,4 @@ MOBAC is creating Oruxmaps offline maps from the Maperitive results.
 
 
 -------------------------
-Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 15.10.13
+Created by Harel Mazor and Zeev Stadler 31.3.13. Last Updated: 17.01.2014
