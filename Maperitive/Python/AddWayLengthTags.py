@@ -11,22 +11,32 @@ sFileName = 'Cache\Forests.osm'
 
 #this function calculates the distance between two nodes
 def getLength(node1, node2):
-	startx = node1.location.x
-	starty = node1.location.y
-	endx = node2.location.x
-	endy = node2.location.y
-	return getLength4(startx, starty, endx, endy)
+	return getLength4(node1.location.x, node1.location.y, node2.location.x, node2.location.y)
 
-# This function calculates the distance between two lat/lon pairs
-def getLength4(startx, starty, endx, endy):
-	midx = (startx+endx)/2
-	midy = (starty+endy)/2
+# These functions calculates the distance between two lat/lon pairs
 	# Earth's circumference is about 40,000 km.
 	# So 1 degree of longitude at the equator, or 1 degree of latitude, is about 40,000/360 = 110 km.
-	distx = 40000*(endx-startx)/360 * math.cos(math.radians(midy))
-	disty = 40000*(endy-starty)/360
-	length = math.sqrt(distx*distx+disty*disty)
+def getDistX(startx, starty, endx, endy):
+	return 40000*(endx-startx)/360 * math.cos(math.radians((starty+endy)/2))
+def getDistY(starty, endy):
+	return 40000*(endy-starty)/360
+def getLength4(startx, starty, endx, endy):
+	distx = getDistX(startx, starty, endx, endy)
+	disty = getDistY(starty, endy)
+	if distx == 0 :
+		length = disty
+	elif disty == 0 :
+		length = distx
+	else:
+		length = math.sqrt((distx*distx)+(disty*disty))
+	if length < 0 :
+		length = - length
 	return length
+
+App.log('script-dir: ' + App.script_dir)
+App.run_command('change-dir dir="' + App.script_dir +'"')
+
+App.collect_garbage()
 
 # Create an osm file with forest name info
 osmFile = open(sFileName, 'w')
@@ -35,6 +45,7 @@ iId = 0
 osmFile.write('<?xml version="1.0" encoding="utf-8"?>' + "\n")
 osmFile.write('<osm version="0.5" generator="AddWayLengthTags.py">' + "\n")
 
+osmLayer = None
 try:
     # Look at all OSM map sources.
     for layer in Map.layers:
@@ -84,10 +95,12 @@ except:
 osmFile.write('</osm>')
 osmFile.close()
 
+App.collect_garbage()
+
 # If there are no OSM map sources, report an error...
-if osmLayer == None:
-    raise AssertionError("There are no OSM map souces.")
+if osmLayer is None:
+    raise AssertionError("There are no OSM map sources.")
 
 # osmLayer.save_xml_file("D:\Tiles\OSM\israel_and_palestine_with_lengths.osm")
 
-# vim: set shiftwidth=4:
+# vim: set shiftwidth=4 noexpandtab textwidth=0:
