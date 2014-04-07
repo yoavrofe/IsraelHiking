@@ -307,7 +307,6 @@ rules
 			icon-width : 14:16;15:24
 		draw : icon
 
-	
 	target : gate
 		define
 			min-zoom : 15
@@ -437,6 +436,16 @@ rules
 			line-color : gray
 			line-width : 2
 		draw : line
+	target : railway rail
+		for : bridge=yes
+			define
+				min-zoom : 13
+				line-style : solid
+				line-color : black
+				line-offset : 2
+				line-width : 2
+				line-offset-sides : both
+			draw : line
 
 	target : road *
 		if : * motorway
@@ -498,9 +507,19 @@ rules
 			line-width : 10:0.5;13:2;14:2;16:3
 			border-style : solid
 			border-width : 80%
+
+		for : tunnel=yes
+			define
+				border-style : dot
+				line-style : dot
+
+		for : bridge=yes
+			define
+				border-width : 150%
+
 		draw : line
 
-// Major Road Sheilds
+// Major Road Shields
 // The length in Km is computed by a Python routine
 
 		// default min-zoom is set for safety
@@ -508,6 +527,8 @@ rules
 			min-zoom : 22
 
 		for : length < 1
+			stop
+		for : junction = roundabout
 			stop
 		if : * motorway
 			for : length > 16
@@ -560,9 +581,12 @@ rules
 			elsefor : length > 4
 				define
 					min-zoom : 12
-			else
+			elsefor : length > 2
 				define
 					min-zoom : 13
+			else
+				define
+					min-zoom : 14
 		elseif : * secondary
 			for : length > 8
 				define
@@ -686,6 +710,9 @@ rules
 				min-zoom : 14
 				line-color : black white 30%
 				line-width : 13:1;14:1.5
+		for : bridge=yes
+			define
+				border-width : 150%
 		draw : line
 		define
 			min-zoom : 14
